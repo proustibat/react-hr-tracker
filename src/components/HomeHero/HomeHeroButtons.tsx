@@ -2,7 +2,7 @@ import React, { MouseEventHandler } from 'react';
 
 export type HomeHeroCtasProps = {
   isPairing: boolean;
-  handlePair?: MouseEventHandler | undefined;
+  handlePair?: MouseEventHandler;
   isPaired?: boolean;
 
   isDisconnecting?: boolean;
@@ -14,7 +14,7 @@ export type HomeHeroCtasProps = {
   isReconnected?: boolean;
 
   isToggling?: boolean;
-  handleTogglePause?: MouseEventHandler | undefined;
+  handleTogglePause?: MouseEventHandler;
   isPaused?: boolean;
 };
 
