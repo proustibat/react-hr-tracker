@@ -7,6 +7,11 @@
 <img id="badge" src="https://david-dm.org/proustibat/react-hr-tracker.svg" alt="dependencies updates">
 [![Renovate enabled](https://img.shields.io/badge/RenovateBot-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![Heroku CI](https://img.shields.io/badge/Heroku%20-CI-blueviolet)](https://devcenter.heroku.com/articles/heroku-ci)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=proustibat_react-hr-tracker&metric=alert_status)](https://sonarcloud.io/dashboard?id=proustibat_react-hr-tracker)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=proustibat_react-hr-tracker&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=proustibat_react-hr-tracker)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=proustibat_react-hr-tracker&metric=code_smells)](https://sonarcloud.io/dashboard?id=proustibat_react-hr-tracker)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=proustibat_react-hr-tracker&metric=bugs)](https://sonarcloud.io/dashboard?id=proustibat_react-hr-tracker)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=proustibat_react-hr-tracker&metric=sqale_index)](https://sonarcloud.io/dashboard?id=proustibat_react-hr-tracker)
 
 Track heart rate measurement with the [Bluetooth Web API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API).
 
@@ -82,3 +87,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [Commitizen](http://commitizen.github.io/cz-cli/) / [cz-emoji](https://github.com/ngryman/cz-emoji)
 - [Prettier](https://prettier.io/) / [pretty-quick](https://github.com/azz/pretty-quick#readme)
 - [Heroku](https://devcenter.heroku.com/categories/reference)
+- [Sonarcloud](https://sonarcloud.io/documentation/analysis/automatic-analysis/)
