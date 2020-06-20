@@ -1,0 +1,28 @@
+@import 'variables';
+@import '~bulmaswatch/lumen/variables';
+@import '~bulma/bulma.sass';
+@import '~bulmaswatch/lumen/overrides';
+
+// HomeHeroIcon
+.home-hero-icon__wrapper {
+  margin-top: 0.5rem;
+}
+.home-hero-icon__wrapper_content {
+  display: inline-flex;
+  align-items: center;
+  svg {
+    margin-right: 0.5rem;
+  }
+  strong {
+    margin-left: 0.5rem;
+    font-size: 8rem;
+  }
+}
+.home-hero-icon__wrapper_content_icon {
+  margin: 1rem 0;
+}
+
+// HomeHeroButtons
+.home-hero-buttons {
+  margin: 0.5rem auto 2rem auto;
+}
