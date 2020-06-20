@@ -67,7 +67,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#### Heroku deployment
+### Heroku deployment
 
 - Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
 - Login to your account and create an app.
