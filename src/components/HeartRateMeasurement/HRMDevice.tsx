@@ -4,7 +4,7 @@ import { na } from '../../utils';
 export type HRMDeviceProps = {
   deviceName?: string;
   deviceId?: string;
-  onUnPair?: MouseEventHandler | undefined;
+  onUnPair?: MouseEventHandler;
   isPaired?: boolean;
 };
 

@@ -39,9 +39,11 @@ const HomeHero = () => {
   >();
   const [heartRate, setHeartRate] = useState<number | undefined>(undefined);
 
-  const connect = async (gatt: BluetoothRemoteGATTServer) => {
+  const connect = async (gattServer: BluetoothRemoteGATTServer) => {
     // Server
-    const server = await gatt.connect().catch((e: Error) => Promise.reject(e));
+    const server = await gattServer
+      .connect()
+      .catch((e: Error) => Promise.reject(e));
     setServerConnected(server.connected);
 
     // Service
@@ -62,12 +64,11 @@ const HomeHero = () => {
     await handleTogglePause(bluetoothRemoteGATTCharacteristic)({
       forcePlay: true,
     }).catch((e: Error) => Promise.reject(e));
-
     return Promise.resolve(true);
   };
 
   const handleTogglePause = (
-    characteristicToToggle: BluetoothRemoteGATTCharacteristic,
+    characteristicToToggle?: BluetoothRemoteGATTCharacteristic,
   ) => async (options?: HandleTogglePauseArgs) => {
     setIsToggling(true);
 
@@ -76,7 +77,7 @@ const HomeHero = () => {
         (!isPaused && !(options as HandleTogglePauseOptions)?.forcePlay) ||
         (options as HandleTogglePauseOptions)?.forceStop
       ) {
-        if (serverConnected) {
+        if (serverConnected && characteristicToToggle) {
           await characteristicToToggle
             .stopNotifications()
             .then((char: BluetoothRemoteGATTCharacteristic) => {
@@ -86,7 +87,10 @@ const HomeHero = () => {
         }
         setHeartRate(undefined);
         setIsPause(true);
-      } else if (isPaused || (options as HandleTogglePauseOptions)?.forcePlay) {
+      } else if (
+        (isPaused || (options as HandleTogglePauseOptions)?.forcePlay) &&
+        characteristicToToggle
+      ) {
         characteristicToToggle.oncharacteristicvaluechanged = (e: Event) => {
           setIsPause(false);
           setDeviceDisconnected(false);
@@ -134,19 +138,16 @@ const HomeHero = () => {
 
   const handleDisconnect = async () => {
     setIsDisconnecting(true);
-    await handleTogglePause(
-      characteristic as BluetoothRemoteGATTCharacteristic,
-    )({ forceStop: true }).catch((e: Error) => Promise.reject(e));
-
-    if (gatt?.connected) {
-      gatt.disconnect();
-    }
+    await handleTogglePause(characteristic)({
+      forceStop: true,
+    }).catch((e: Error) => Promise.reject(e));
+    gatt?.connected && gatt.disconnect();
   };
 
   const handleUnPair = async () => {
-    await handleTogglePause(
-      characteristic as BluetoothRemoteGATTCharacteristic,
-    )({ forceStop: true }).catch((e: Error) => Promise.reject(e));
+    await handleTogglePause(characteristic)({
+      forceStop: true,
+    }).catch((e: Error) => Promise.reject(e));
 
     if (device && gatt) {
       device.ongattserverdisconnected = async () => {
@@ -225,9 +226,7 @@ const HomeHero = () => {
             handleReconnect={handleReconnect}
             isReconnected={isReconnected}
             isToggling={isToggling}
-            handleTogglePause={handleTogglePause(
-              characteristic as BluetoothRemoteGATTCharacteristic,
-            )}
+            handleTogglePause={handleTogglePause(characteristic)}
             isPaused={isPaused}
           />
 
