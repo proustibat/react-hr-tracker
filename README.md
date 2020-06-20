@@ -29,14 +29,14 @@ We also use [Yarn](https://classic.yarnpkg.com/), but you could use NPM instead.
 
 ## Installation
 
+#### `yarn`
+
 - The installation requires to be authenticated to the Font Awesome npm registry.
   As you can see in `.npmrc` file, we set a variable environment `FONTAWESOME_NPM_AUTH_TOKEN`. You can set it on deploymnet server and on you dev environmeent.
   We recommend to use [direnv](https://direnv.net/).
 
 - In order to be available to use Web Bluetooth API on mobile in development mode, you need to browse the app with https.
   For example, add a `.env` file with `HTTPS=true`.
-
-Then you can run `yarn` or `npm i`.
 
 ## Development
 
