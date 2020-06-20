@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.env
+.npmrc
+.idea
+
+.idea/workspace.xml
+.idea/watcherTasks.xml
+react-hr-tracker.iml
+
