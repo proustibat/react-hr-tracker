@@ -5,6 +5,8 @@
 <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" height="21">
 </a>
 <img id="badge" src="https://david-dm.org/proustibat/react-hr-tracker.svg" alt="dependencies updates">
+[![Renovate enabled](https://img.shields.io/badge/RenovateBot-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![Heroku CI](https://img.shields.io/badge/Heroku%20-CI-blueviolet)](https://devcenter.heroku.com/articles/heroku-ci)
 
 Track heart rate measurement with the [Bluetooth Web API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API).
 
