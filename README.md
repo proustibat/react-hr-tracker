@@ -73,8 +73,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Login to your account and create an app.
 - Use [this Heroku Buildpack](https://github.com/mars/create-react-app-buildpack)
 - Don't forget to add variable environment: `heroku config:set FONTAWESOME_NPM_AUTH_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX`
-- Deploy with `yarn heroku-deploy`
 - Learn more about [Heroku CI](https://devcenter.heroku.com/articles/heroku-ci) in order to deploy to run tests and deploy production and staging environments automatically when pushing and making pull request on [Github](https://devcenter.heroku.com/articles/github-integration#automatic-deploys).
+- Deploy manually with `yarn heroku-deploy`
 
 ## Learn More
 
