@@ -2,17 +2,33 @@
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 <a href="https://bulma.io">
-<img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" height="20">
+<img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" height="21">
 </a>
+<img id="badge" src="https://david-dm.org/proustibat/react-hr-tracker.svg" alt="dependencies updates">
 
 Track heart rate measurement with the [Bluetooth Web API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Demo
+
+App is running at [https://react-hr-tracker.herokuapp.com/](https://react-hr-tracker.herokuapp.com/)
+
 ## Prerequisites
 
 Be sure [Node](https://nodejs.org/) and [NPM](https://www.npmjs.com/) are installed.
 We also use [Yarn](https://classic.yarnpkg.com/), but you could use NPM instead.
+
+## Installation
+
+- The installation requires to be authenticated to the Font Awesome npm registry.
+  As you can see in `.npmrc` file, we set a variable environment `FONTAWESOME_NPM_AUTH_TOKEN`. You can set it on deploymnet server and on you dev environmeent.
+  We recommend to use [direnv](https://direnv.net/).
+
+- In order to be available to use Web Bluetooth API on mobile in development mode, you need to browse the app with https.
+  For example, add a `.env` file with `HTTPS=true`.
+
+Then you can run `yarn` or `npm i`.
 
 ## Available Scripts
 
@@ -25,16 +41,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-#### Warning
-
-- In order to be available to use Web Bluetooth API on mobile in developmeent mode, you should browsee the aopp with https. For example, add a `.env` file with `HTTPS=true`.
-- As we used Font Awesome Pro, you need a `.npmrc` file with your Font Awesome token as follows:
-
-```
-@fortawesome:registry=https://npm.fontawesome.com/
-//npm.fontawesome.com/:_authToken=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-```
 
 ### `yarn test`
 
@@ -51,6 +57,14 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Heroku deployment
+
+- Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+- Login to your account and create an app.
+- Use [this Heroku Buildpack](https://github.com/mars/create-react-app-buildpack.git)
+- Don't forget to add variable environment: `heroku config:set FONTAWESOME_NPM_AUTH_TOKEN=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX`
+- Deploy with `yarn heroku-deploy`
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -60,7 +74,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Other used tools:
 
 - [Bulma documentation](https://bulma.io/documentation/).
-- [Font Awesome](https://fontawesome.com/) with [Font Awesome Pro](https://fontawesome.com/pro).
+- [Font Awesome](https://fontawesome.com/) / [Font Awesome Pro](https://fontawesome.com/pro).
 - [Husky](https://github.com/typicode/husky#readme)
-- [Commitizen](http://commitizen.github.io/cz-cli/) with [cz-emoji](https://github.com/ngryman/cz-emoji)
-- [Prettier](https://prettier.io/) with [pretty-quick](https://github.com/azz/pretty-quick#readme)
+- [Commitizen](http://commitizen.github.io/cz-cli/) / [cz-emoji](https://github.com/ngryman/cz-emoji)
+- [Prettier](https://prettier.io/) / [pretty-quick](https://github.com/azz/pretty-quick#readme)
+- [Heroku](https://devcenter.heroku.com/categories/reference)
