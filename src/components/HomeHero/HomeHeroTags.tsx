@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { ReactNode } from 'react';
+
 import {
   faBluetooth,
   faCss3,
   faReact,
   faFontAwesome,
+  faGithub,
   IconDefinition,
 } from '@fortawesome/free-brands-svg-icons';
 
@@ -38,6 +40,11 @@ const tagList: ITagInfo[] = [
     tagName: 'Font Awesome',
     url: 'https://fontawesome.com/icons/font-awesome',
     icon: faFontAwesome,
+  },
+  {
+    tagName: 'View on Github',
+    url: 'https://github.com/proustibat/react-hr-tracker',
+    icon: faGithub,
   },
 ];
 

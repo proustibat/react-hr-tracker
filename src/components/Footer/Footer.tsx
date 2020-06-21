@@ -10,7 +10,11 @@ const Footer = () => (
           Jennifer Proust
         </ExternalLink>
         .<br />
-        The source code is licensed{' '}
+        The{' '}
+        <ExternalLink url="https://github.com/proustibat/react-hr-tracker">
+          source
+        </ExternalLink>{' '}
+        code is licensed{' '}
         <ExternalLink url="http://opensource.org/licenses/mit-license.php">
           MIT
         </ExternalLink>
