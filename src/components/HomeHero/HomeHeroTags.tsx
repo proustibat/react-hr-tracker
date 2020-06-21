@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import {
   faBluetooth,
@@ -7,20 +7,11 @@ import {
   faReact,
   faFontAwesome,
   faGithub,
-  IconDefinition,
 } from '@fortawesome/free-brands-svg-icons';
 
-interface ITagInfo {
-  tagName: string;
-  url?: string;
-  icon?: IconDefinition;
-}
-interface ITagElement {
-  url?: string;
-  children: ReactNode;
-}
+import { TagElementType, TagInfoType } from './types';
 
-const tagList: ITagInfo[] = [
+const tagList: TagInfoType[] = [
   {
     tagName: 'React',
     url: 'https://reactjs.org',
@@ -48,7 +39,7 @@ const tagList: ITagInfo[] = [
   },
 ];
 
-const TagElement = ({ url, children }: ITagElement) => {
+const TagElement = ({ url, children }: TagElementType) => {
   const CustomTag: any = `${url ? 'a' : 'span'}`;
   return (
     <CustomTag
@@ -62,23 +53,21 @@ const TagElement = ({ url, children }: ITagElement) => {
   );
 };
 
-const HomeHeroTags = () => {
-  return (
-    <div className="field is-grouped is-grouped-multiline is-grouped-centered">
-      {tagList.map(({ tagName, url, icon }) => (
-        <div className="control" key={tagName}>
-          <div className="tags has-addons">
-            {icon && (
-              <span className="tag">
-                <FontAwesomeIcon color="#363636" size="lg" icon={icon} />
-              </span>
-            )}
-            <TagElement url={url}>{tagName}</TagElement>
-          </div>
+const HomeHeroTags = () => (
+  <div className="field is-grouped is-grouped-multiline is-grouped-centered">
+    {tagList.map(({ tagName, url, icon }) => (
+      <div className="control" key={tagName}>
+        <div className="tags has-addons">
+          {icon && (
+            <span className="tag">
+              <FontAwesomeIcon color="#363636" size="lg" icon={icon} />
+            </span>
+          )}
+          <TagElement url={url}>{tagName}</TagElement>
         </div>
-      ))}
-    </div>
-  );
-};
+      </div>
+    ))}
+  </div>
+);
 
 export default HomeHeroTags;

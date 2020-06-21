@@ -7,10 +7,11 @@ import {
   faHeartCircle,
 } from '@fortawesome/pro-light-svg-icons';
 
-export type HomeHeroIconProps = {
+type HomeHeroIconProps = {
   heartRate?: number;
   deviceDisconnected?: boolean;
   isPaused?: boolean;
+  className?: string;
 };
 
 const iconsRules = [
@@ -32,20 +33,21 @@ const iconsRules = [
 const defaultIcon = { svg: faHeartRate };
 
 const HomeHeroIcon = (props: HomeHeroIconProps) => {
-  const { heartRate } = props;
+  const { heartRate, className } = props;
   return (
-    <div className="home-hero-icon__wrapper">
+    <div className={className}>
       {
         <span className="home-hero-icon__wrapper_content">
           <FontAwesomeIcon
-            className="home-hero-icon__wrapper_content_icon"
             size="8x"
             icon={
               (iconsRules.find(rule => rule.predicate(props)) || defaultIcon)
                 .svg
             }
           />
-          {heartRate && <strong className="has-text-light">{heartRate}</strong>}
+          {heartRate && (
+            <strong className="has-text-light ml-2">{heartRate}</strong>
+          )}
         </span>
       }
     </div>

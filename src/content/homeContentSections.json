@@ -1,0 +1,37 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "title": "Device",
+      "paragraphs": [
+        "The physical Bluetooth device may be guaranteed to have some properties that the UA may not have received."
+      ],
+      "docLink": "https://webbluetoothcg.github.io/web-bluetooth/#global-device-properties"
+    },
+    {
+      "id": 1,
+      "title": "Server",
+      "paragraphs": [
+        "BluetoothRemoteGATTServer represents a GATT Server on a remote device."
+      ],
+      "docLink": "https://webbluetoothcg.github.io/web-bluetooth/#bluetoothgattremoteserver-interface"
+    },
+    {
+      "id": 2,
+      "title": "Service",
+      "paragraphs": [
+        "BluetoothRemoteGATTService represents a GATT Service, a collection of characteristics and relationships to other services that encapsulate the behavior of part of a device."
+      ],
+      "docLink": "https://webbluetoothcg.github.io/web-bluetooth/#bluetoothgattservice-interface"
+    },
+    {
+      "id": 3,
+      "title": "Properties characteristics",
+      "paragraphs": [
+        "BluetoothRemoteGATTCharacteristic represents a GATT Characteristic, which is a basic data element that provides further information about a peripheral’s service.",
+        "Each BluetoothRemoteGATTCharacteristic exposes its characteristic properties through a BluetoothCharacteristicProperties object. These properties express what operations are valid on the characteristic."
+      ],
+      "docLink": "https://webbluetoothcg.github.io/web-bluetooth/#characteristicproperties-interface"
+    }
+  ]
+}

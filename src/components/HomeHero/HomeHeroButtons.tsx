@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 
-export type HomeHeroCtasProps = {
+export type HomeHeroButtonsProps = {
   isPairing: boolean;
   handlePair?: MouseEventHandler;
   isPaired?: boolean;
@@ -34,8 +34,8 @@ const HomeHeroButtons = ({
   isToggling,
   handleTogglePause,
   isPaused,
-}: HomeHeroCtasProps) => (
-  <div className="home-hero-buttons">
+}: HomeHeroButtonsProps) => (
+  <>
     <p>
       {
         <button
@@ -86,7 +86,7 @@ const HomeHeroButtons = ({
         </button>
       }
     </p>
-  </div>
+  </>
 );
 
 export default HomeHeroButtons;
