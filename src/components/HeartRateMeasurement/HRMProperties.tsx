@@ -1,18 +1,6 @@
 import React from 'react';
 import { na } from '../../utils';
 
-type PropertiesType = {
-  authenticatedSignedWrites: boolean;
-  broadcast: boolean;
-  indicate: boolean;
-  notify: boolean;
-  read: boolean;
-  reliableWrite: boolean;
-  writableAuxiliaries: boolean;
-  write: boolean;
-  writeWithoutResponse: boolean;
-};
-
 export type HRMPropertiesProps = {
   properties: BluetoothCharacteristicProperties | undefined;
 };

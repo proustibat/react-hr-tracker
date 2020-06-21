@@ -1,15 +1,17 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState } from 'react';
+import moment from 'moment';
 import HomeHeroTags from './HomeHeroTags';
 import HomeHeroIcon from './HomeHeroIcon';
 import HomeHeroButtons from './HomeHeroButtons';
 import HeartRateMeasurement from '../HeartRateMeasurement/HeartRateMeasurement';
+import HomeHeroChart from '../HomeHeroChart/HomeHeroChart';
+import { filterOlderData } from './utils';
 
-type HandleTogglePauseOptions = {
-  forcePlay?: boolean;
-  forceStop?: boolean;
-};
-
-type HandleTogglePauseArgs = HandleTogglePauseOptions | MouseEvent;
+import {
+  DataChartItemType,
+  HandleTogglePauseArgs,
+  HandleTogglePauseOptions,
+} from './types';
 
 const HomeHero = () => {
   const [device, setDevice] = useState<BluetoothDevice>();
@@ -38,6 +40,27 @@ const HomeHero = () => {
     BluetoothRemoteGATTCharacteristic
   >();
   const [heartRate, setHeartRate] = useState<number | undefined>(undefined);
+
+  const [chartData, setChartData] = useState<DataChartItemType[]>([]);
+
+  const handleCharacteristicValueChanged = (e: Event) => {
+    setIsPause(false);
+    setDeviceDisconnected(false);
+    setServerConnected(true);
+    const hr = (((e.target as HTMLTextAreaElement)
+      ?.value as unknown) as DataView).getInt8(1);
+    setHeartRate(hr);
+    setChartData(previousChartData => [
+      ...filterOlderData(
+        previousChartData,
+        HomeHeroChart.maxRangeLengthSeconds,
+      ),
+      {
+        time: moment().toDate().getTime(),
+        hr,
+      },
+    ]);
+  };
 
   const connect = async (gattServer: BluetoothRemoteGATTServer) => {
     // Server
@@ -86,20 +109,13 @@ const HomeHero = () => {
             .catch((e: Error) => reject(e));
         }
         setHeartRate(undefined);
+        setChartData([]);
         setIsPause(true);
       } else if (
         (isPaused || (options as HandleTogglePauseOptions)?.forcePlay) &&
         characteristicToToggle
       ) {
-        characteristicToToggle.oncharacteristicvaluechanged = (e: Event) => {
-          setIsPause(false);
-          setDeviceDisconnected(false);
-          setServerConnected(true);
-          setHeartRate(
-            (((e.target as HTMLTextAreaElement)
-              ?.value as unknown) as DataView).getInt8(1),
-          );
-        };
+        characteristicToToggle.oncharacteristicvaluechanged = handleCharacteristicValueChanged;
         await characteristicToToggle
           .startNotifications()
           .catch((e: Error) => reject(e));
@@ -125,6 +141,7 @@ const HomeHero = () => {
 
   const onGattServerDisconnected = () => {
     setHeartRate(undefined);
+    setChartData([]);
     setProperties(undefined);
     setServiceUuid(undefined);
     setServiceIsPrimary(false);
@@ -172,8 +189,7 @@ const HomeHero = () => {
     const filters: BluetoothRequestDeviceFilter[] = [{ services }];
     const options: RequestDeviceOptions = { filters };
 
-    // @ts-ignore
-    const requestedDevice: BluetoothDevice = await navigator.bluetooth
+    const requestedDevice: BluetoothDevice | void = await navigator.bluetooth
       .requestDevice(options)
       .catch((e: Error) => alert(e));
 
@@ -203,18 +219,6 @@ const HomeHero = () => {
 
           <HomeHeroTags />
 
-          <HomeHeroIcon
-            heartRate={heartRate}
-            deviceDisconnected={deviceDisconnected}
-            isPaused={
-              serverConnected &&
-              characteristic &&
-              device &&
-              !isPairing &&
-              isPaused
-            }
-          />
-
           <HomeHeroButtons
             isPairing={isPairing}
             handlePair={handlePair}
@@ -229,6 +233,26 @@ const HomeHero = () => {
             handleTogglePause={handleTogglePause(characteristic)}
             isPaused={isPaused}
           />
+
+          <div className="columns is-vcentered is-centered mt-4 mb-4">
+            <HomeHeroIcon
+              heartRate={heartRate}
+              deviceDisconnected={deviceDisconnected}
+              isPaused={
+                serverConnected &&
+                characteristic &&
+                device &&
+                !isPairing &&
+                isPaused
+              }
+              className="column is-full-mobile is-three-fifths-tablet is-two-fifths-desktop"
+            />
+
+            <HomeHeroChart
+              data={chartData}
+              className="column is-full-mobile is-two-fifths-tablet is-three-fifths-desktop"
+            />
+          </div>
 
           <HeartRateMeasurement
             deviceName={device?.name}
