@@ -1051,33 +1051,9 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.29"
 
-"@fortawesome/free-solid-svg-icons@5.13.1":
-  version "5.13.1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.13.1.tgz#010a846b718a0f110b3cd137d072639b4e8bd41a"
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.29"
-
-"@fortawesome/pro-duotone-svg-icons@5.13.1":
-  version "5.13.1"
-  resolved "https://npm.fontawesome.com/@fortawesome/pro-duotone-svg-icons/-/5.13.1/pro-duotone-svg-icons-5.13.1.tgz#1b9e1c5518d93689044d6cff9e25e020486c7f25"
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.29"
-
 "@fortawesome/pro-light-svg-icons@5.13.1":
   version "5.13.1"
   resolved "https://npm.fontawesome.com/@fortawesome/pro-light-svg-icons/-/5.13.1/pro-light-svg-icons-5.13.1.tgz#271cf9d5c7252b4058eabebe41fa9e623cce628b"
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.29"
-
-"@fortawesome/pro-regular-svg-icons@5.13.1":
-  version "5.13.1"
-  resolved "https://npm.fontawesome.com/@fortawesome/pro-regular-svg-icons/-/5.13.1/pro-regular-svg-icons-5.13.1.tgz#b14530330db86edf2fb7f2888c50188d07fac1de"
-  dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.29"
-
-"@fortawesome/pro-solid-svg-icons@5.13.1":
-  version "5.13.1"
-  resolved "https://npm.fontawesome.com/@fortawesome/pro-solid-svg-icons/-/5.13.1/pro-solid-svg-icons-5.13.1.tgz#8b751df41bcb7f7bd9ea24983500c050341ee114"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.29"
 
@@ -1394,7 +1370,6 @@
 "@testing-library/user-event@12.0.3":
   version "12.0.3"
   resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-12.0.3.tgz#ff14dc63a1256da6980287c250fab66008dc10d6"
-  integrity sha512-KAcrfxjT9Ok/YeiOsY2oTr0Vb1OT//LEzsVGm41DaYJT9KBPWdoRIOFtGzrc+BFjVGqy34eriVFJ5MB0DF9Ncw==
   dependencies:
     "@babel/runtime" "^7.10.2"
 
