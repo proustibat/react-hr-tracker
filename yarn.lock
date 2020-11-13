@@ -1783,10 +1783,10 @@
   dependencies:
     "@types/jest" "*"
 
-"@types/web-bluetooth@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.7.tgz#279886e64afedd195c045db2802f9ddc32a8d4bb"
-  integrity sha512-15hyl2QMvlJDy/FS9ZHBtTNUHf7Iyzhk8hS0mqjnJbXkfJeWksO3WvPKRX4HbHOHmGSIU5arOmSzKLjCIKgDqw==
+"@types/web-bluetooth@0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.9.tgz#bfd545f6cbc32fc9d92e9543b5ea18ba0957e955"
+  integrity sha512-P6oHnRSEqRCR1fdAtJXmKBiHE3fOWtNFyfjm9NQZPrxdQjSZgRSiKRiHjLyKBh8eCvM8ldDS8/VJN0qKg0Pk1Q==
 
 "@types/yargs-parser@*":
   version "15.0.0"
