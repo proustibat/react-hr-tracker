@@ -17,8 +17,8 @@
     "bulmaswatch": "0.8.1",
     "moment": "2.29.1",
     "node-sass": "4.14.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "react-scripts": "3.4.4",
     "recharts": "1.8.5",
     "typescript": "4.0.5"
